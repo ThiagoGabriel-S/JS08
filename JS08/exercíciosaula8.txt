@@ -1,0 +1,94 @@
+atividade 1:
+
+let agora = new Date();
+
+console.log(agora);
+
+atividade 2:
+
+ let data = new Date(2000, 4, 15);
+        console.log(data);
+
+atividade 3:
+
+let data = new Date([2000], [4], [15]);
+
+console.log("Dia:" + data.getDate());
+console.log("Mês:" + (data.getMonth() + 1));
+console.log("Ano:" + data.getFullYear());
+
+atividade 4:
+
+function calcularIdade(dataNascimento) {
+    let hoje = new Date();
+    let nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+
+    // Verifica se já fez aniversário este ano
+    if (hoje.getMonth() < nascimento.getMonth()) {
+        idade--;
+    }
+
+    return idade;
+}
+
+// Testando com data fixa
+let idade = calcularIdade("2000-05-15");
+console.log("Idade:" + idade);
+
+atividade 5:
+
+function executar(callback) {
+    console.log("Executando callback...");
+    callback();
+}
+
+executar(function() {
+    console.log("Olá, mundo!");
+});
+
+atividade 6:
+
+function operarNumeros(a, b, callback) {
+    let resultado = callback(a, b);
+    console.log("Resultado:", resultado);
+}
+
+operarNumeros(5, 3, function(x, y) {
+    return x + y;
+});
+
+atividade 7:
+
+let tarefas = [];
+
+// CREATE - Adicionar
+tarefas.push("Estudar JavaScript");
+tarefas.push("Fazer exercícios");
+
+// READ - Consultar
+console.log("Tarefas:", tarefas);
+
+// UPDATE - Atualizar (primeira tarefa)
+tarefas[0] = "Estudar JavaScript Avançado";
+
+// DELETE - Remover (primeira tarefa)
+tarefas.splice(0, 1);
+
+console.log("Tarefas atualizadas:", tarefas);
+
+atividade 8:
+
+let csv = "nome,idade\nAna,25\nJoão,30";
+
+// Dividir em linhas
+let linhas = csv.split("\n");
+
+// Dividir a primeira linha em cabeçalhos
+let cabecalhos = linhas[0].split(",");
+
+// Percorrer as linhas de dados
+for (let i = 1; i < linhas.length; i++) {
+    let valores = linhas[i].split(",");
+    console.log(cabecalhos[0] + ":" + valores[0]);
+}
